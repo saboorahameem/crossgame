@@ -1,10 +1,10 @@
-FROM tomcat:9.0-alpine
-#WORKDIR /opt/tomcat/webapps
-COPY .  .
-ADD target/crosscicd.war /usr/local/tomcat/webapps/trialkube.war
-EXPOSE 8081
+    FROM tomcat:9.0-alpine
+    #WORKDIR /opt/tomcat/webapps
+    COPY .  .
+    ADD target/gamecicd.war /usr/local/tomcat/webapps/gamecicd.war
+    EXPOSE 8080
 
-CMD  ["catalina.sh" , "run"]
+    CMD  ["catalina.sh" , "run"]
 
 
 
