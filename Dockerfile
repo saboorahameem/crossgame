@@ -3,4 +3,4 @@
 #    COPY ./**.war  /usr/local/tomcat/webapps/gamecicd.war
     COPY /gameoflife-web/target/gameoflife.war /usr/local/tomcat/webapps/ROOT.war
     EXPOSE 8080
-    CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+    CMD ["catalina.sh", "run"]
