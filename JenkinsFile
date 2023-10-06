@@ -1,0 +1,49 @@
+
+
+
+pipeline{
+    agent any
+    environment {
+        DOCKERTAG = "1.0"
+        }
+
+    
+    stages{
+        stage("get the code")
+             {
+        steps{    
+        git branch: 'master', url: 'https://github.com/saboorahameem/crossgame.git'
+             }
+             }
+        stage("build the code")
+             {
+        steps{    
+             bat 'mvn clean package'
+             }
+             }
+            stage  ("docker image")
+             {
+        steps{    
+             echo "${DOCKERTAG}"
+             bat 'docker build -t saboora/crossgame  .'
+             }
+             }
+            stage ("docker image to hub")
+             {
+            steps
+            {
+             withCredentials([usernameColonPassword(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                 echo '${DOCKERTAG}'
+           // bat 'docker push saboora/crossgame'
+           }   
+            }
+             }
+
+        //   stage ("deploy in tomcat")
+         //   {
+        //  steps{    
+          //   deploy adapters: [tomcat8(credentialsId: '72113b33-cf3d-47cc-9850-63729567598d', path: '', url: 'http://localhost:9090')], contextPath: 'gamecicd', war: '**/*.war'
+        //     }
+          // 
+    }
+}
