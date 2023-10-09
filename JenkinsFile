@@ -12,12 +12,12 @@ bat 'mvn verify'
 /*
 stage("sonarqube")
 {
-bat 'mvn sonar:sonar'
+//bat 'mvn sonar:sonar'
 }
 */
 stage("testresults")
 {
-junit '**/gameoflife-core/target/surefire-reports/*.xml'
+//junit '**/gameoflife-core/target/surefire-reports/*.xml'
 }
 stage("archiveartifacts")
 {
