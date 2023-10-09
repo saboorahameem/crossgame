@@ -17,7 +17,7 @@ stage("sonarqube")
 */
 stage("testresults")
 {
-//junit '**/gameoflife-core/target/surefire-reports/*.xml'
+junit '**/gameoflife-core/target/surefire-reports/*.xml'
 }
 stage("archiveartifacts")
 {
