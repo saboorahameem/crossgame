@@ -26,7 +26,7 @@ metadata:
   name: crossgame
 spec:
   selector:
-    app.kubernetes.io/name: crossgame
+    app: crossgame
   ports:
     - protocol: TCP
       port: 80
